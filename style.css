@@ -1,0 +1,623 @@
+ * {
+     /* '*' is for universal selector */
+
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'monstserrat';
+     color: #fff;
+     /*color for every thing */
+ }
+
+ html,
+ body {
+
+     height: 100%;
+     width: 100%;
+
+ }
+
+ *::selection{ /*taaki select krne pe ye color aay*/
+    background-color: #fff;
+    color:#95C11E;
+ }
+
+ body::-webkit-scrollbar{ /*scrollbar jo right side hoti hai website ke*/
+
+    display: block;
+    width: 8px;
+    background-color: #95C11E;
+
+ }
+
+ body::-webkit-scrollbar-thumb{/*thumb wo hota hai jisse pakad ke scroll niche karte hain*/
+
+    background-color: #fff;
+    border-radius: 50px;
+ }
+   
+ #cursor {
+
+     height: 25px;
+     width: 25px;
+     background-color: #95C11E;
+     border-radius: 50%;
+     position: fixed;
+     z-index: 999;
+     /*sabse Top */
+     transition: all linear 0.1s;
+
+ }
+
+ #cursor-blur {
+
+     height: 300px;
+     width: 300px;
+     background-color: #96c11e2b;
+     /*give light color*/
+     border-radius: 50%;
+     position: fixed;
+     z-index: 9;
+     /*taaki cursor and ye sath mai chale*/
+     filter: blur(40px);
+     /*filter blur kya kr dega is element ko blur kr dega */
+     transition: all linear 0.4s;
+
+ }
+
+ #nav {
+
+     height: 130px;
+     width: 100%;
+     /* background-color: red; */
+     display: flex;
+     /* ek line mai aa jaynge saare element is box ke ander */
+     align-items: center;
+     /* upper se center align kr dega (height) */
+     padding: 0 120px;
+     /* top & bottom , left & right side pe same lagega */
+     gap: 50px;
+     /* saare element ke beech ka gap (unke beech ka gap) */
+     justify-content: flex-start;
+     /* side se center ho jaynge element */
+     position: fixed;
+     /* taaki hamara jo header hai (jiski ID 'nav' hai)
+                       wo purri website mai hammare sath rahe(sticky header type) */
+     z-index: 999;
+     /*is se hamara jo header hai wo top pe aa jayga saare element se */
+     /* means ki hamara  nav(header ID ) wo ek level upper ho jayga */
+
+ }
+
+ #nav img {
+     /* nav id ke ander jo bhi img tag hai wo select ho jayga */
+
+     height: 75px;
+ }
+
+ #nav h4 {
+
+     text-transform: uppercase;
+     /* saare ke saare text uppercase ke ho jaynge H4 waale */
+     font-weight: 500;
+ }
+
+ 
+
+ video {
+
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+     /* for cover full width of area of that box(div) */
+     position: fixed;
+     /* to pure time hamare sath video rahegi */
+     Z-index: -1;
+     /*taaki hamari video element ke piche rahe */
+ }
+
+
+ #main {
+     position: relative;
+     background-color: rgba(0, 0, 0, 0.37);
+ }
+
+ #page1 {
+
+     height: 100vh;
+     /* view port height screen ke hisab se leta hai. */
+     width: 100%;
+     position: relative;
+     /* area se bahar ni aayga */
+     display: flex;
+     /* flex ka matlab srif ye nahi hai ki column mai laana
+                      hai ... flex karne se hamare element row and column 
+                      form mai aa jaate hai or hm flex ki direction change 
+                      kr sakte hain */
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     text-align: center;
+     /*is se text center align ho jayga */
+
+     z-index: 10;
+ }
+
+ /* view port height(vh) -> screen ke hisab se height leta hai 
+   percentage (%) -> percentage parent ke hisab se leta hai */
+
+
+ #page1 h1 {
+     font-size: 140px;
+     font-weight: 900;
+     position: relative;
+     /*Taaki jo psedo-element hai iska wo isi ke
+                         area ke aas paas ghume */
+     /*z-index: 1; /*taaki ye upper uth jaay iske psedo element se */
+ }
+
+ /* PSEDO-ELEMENT IN CSS
+   ->We know that using CSS we cant insert content in WEBSITES,
+     we can only style the elment of HTML,Psedo-elements are used
+     to insert element.
+   ->A CSS pseudo-element is used to style specified parts 
+     of an element. For example, it can be used to: 
+     Style the first letter, or line, of an element. 
+     Insert content before, or after, the content of an element.
+*/
+
+ /* BELOW IS THE USE OF PSEDO-ELEMENT */
+
+ #page1 h1::before {
+     /*psedo-element of above tag */
+
+     content: "EAT.DRINK.PLAY.";
+     position: absolute;
+     /*taaki psedo-element ek level up ho jay
+                         orignal element se ke level pe he to usse
+                         hammara psedo-element hide kr dega*/
+     color: black;
+     top: -3px;
+     /*direction of content*/
+     left: -3px;
+     -webkit-text-stroke: 2px #95C11E;
+     /*is se kya hoga boundry create ho 
+                                           ho jaygi hammare element ke upper na ki border create hogga */
+     z-index: -1;
+     /*is hamne ek level upper uthaya tha ab isko piche kr rahe hain */
+
+ }
+
+
+ #page1 h2 {
+
+     font-size: 30px;
+     font-weight: 800;
+     margin-top: 10px;
+     margin-bottom: 20px;
+ }
+
+ #page1 p {
+
+     font-size: 22px;
+     font-weight: 500;
+     width: 40%;
+ }
+
+ #page2 {
+
+     min-height: 100vh; /*responsiveness*/
+     width: 100%;
+     z-index: 10;
+ }
+
+
+ #scroller {
+
+     /* background-color: red; */
+     white-space: nowrap;
+     overflow-x:auto; /*x-axis mai overflow of content of element auto rahe*/
+     overflow-y:hidden;/*y-axis mai overflow of content of element hidden rahe*/
+     
+     position:relative;   
+     z-index:10;
+
+    }
+#scroller::-webkit-scrollbar{ /*to select the scrollbar of scroller div*/
+
+    display: none; /*scrollbar will not display*/
+}
+
+
+ /*ABOUT WHITE-SPACE: NOWRAP;
+
+  In web development, the CSS property white-space is used to control 
+  how white spaces (such as spaces and line breaks) 
+  inside an element are handled. 
+  The nowrap value is one of the options for this property.
+  When you set white-space: nowrap; on an element, 
+  it means that the text content inside that element 
+  not wrap to the next line if it exceeds the width of the container. 
+  Instead, it will stay on a single line, and any overflow will be hidden 
+  or cause a horizontal scrollbar to appear.
+  Here's a breakdown:
+  white-space: This is the CSS property you're setting.
+  nowrap: This is the value assigned to the white-space property. 
+  It stands for "no wrap," indicating that the text should not wrap to the next line.
+
+*/
+
+#scroller-in{
+
+    display: inline-block;
+    white-space: nowrap;
+
+    /*below is use of animation in Css*/
+    animation-name: scroll;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller-in{
+
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+}
+#scroller h4{
+    
+    display: inline-block; /*is se saare element ke ander ke content ek he line mai aa jaynge.*/
+    font-size: 140px;
+    font-weight: 900px;
+    font-family: gilroy;
+    margin-right: 10px;
+    color:transparent;/*is se hamara text transparent ho jaynge*/
+    -webkit-text-stroke: 2px #95C11E;
+
+    transition: all linear 0.4s;/*is se kya hoga hover slowly hoga */
+
+
+}
+
+#scroller h4:hover{
+
+    color:#95C11E;
+}
+
+
+
+
+@keyframes scroll{ /*adding animation to scrollbar*/
+     
+    from{
+
+        transform: translateX(0);
+    }
+    to{
+
+        transform: translateX(-100%);
+    }
+}
+
+
+#about-us{
+
+    height: 40vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    justify-content: space-around;
+
+    position:relative; 
+    z-index: 10;
+    /*relative and 10 ka reason hai taaki jo
+      blur hai cursor ke sath wo piche ho jaay hamare
+      div se(about-us div) and mouse cursor pe jo point
+      move kr ra hai wo upper rahe*/
+
+}
+
+#about-us img{
+
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+#about-us-in{
+
+    width: 40%;
+    text-align: center;
+}
+
+#about-us-in h3{
+
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+#about-us-in p{
+
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#cards-container{
+
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:40px;
+
+    position:relative;
+    z-index:10;
+}
+
+.card{
+
+    height: 80%;
+    width: 22%;
+    background-color:blue;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all ease 0.6s;
+
+}
+
+#card1{
+
+    background-image: url(card1.avif);
+}
+
+#card2{
+
+    background-image: url(card2.avif);
+}
+
+#card3{
+    
+    background-image: url(card3.avif);
+}
+
+.overlay{
+
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    padding:30px;
+    padding-top: 120px;
+    opacity: 0;
+    transition: all ease 0.6s;
+}
+ 
+.overlay h4{
+
+    color:#000;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-bottom: 20px;
+
+}
+
+.overlay p{
+
+    color: #000;
+    font-size: 18px;
+}
+
+.card:hover .overlay {
+
+    opacity: 1;
+}
+
+.card:hover{
+    
+    transform: rotate3d(-1,1,0,20deg);
+    /*on hover tilt karro element x-axis:-1,y-axis:1
+      z-axis:0, 20deg tilt kro */
+}
+
+
+#green-div{
+
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left bottom,#119f3a, #ace022);
+}
+
+#green-div h4{
+
+    width: 45%;
+    line-height: 40px;
+    color: #000;
+    font-size: 27px;
+    font-weight: 800;
+    text-transform: uppercase; 
+    text-align: center;
+}
+
+#green-div img{
+
+    height: 100%;
+    object-fit: cover; 
+    width: 14%;
+}
+
+#page3{
+
+    height: 100vh;
+    width : 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+#page3>p{ /*iska matlab page3 ke ander direct paragraph(p)*/
+
+    font-size: 35px;
+    font-weight: 700;
+    width: 60%;
+    line-height: 45px;
+    text-align: center;
+}
+
+#page3 img{
+
+    position: absolute;
+    height: 60px;
+
+}
+
+#page3 #colon1{
+
+    left:15%;
+    top:25%;
+}
+
+#page3 #colon2{
+
+    bottom: 25%;
+    right: 15%;
+}
+
+
+#page4{
+
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position:relative;
+}
+
+.elem{
+
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+
+.elem h2{
+
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    display:flex;
+    color:#000;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    font-size: 40px;
+    position:absolute;
+    z-index: 10;
+   
+}
+
+.elem img{
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* scale: 1.5; */
+}
+
+.elem:hover h2{
+
+    color: #fff;
+    background-color: transparent;
+}
+
+/* .elem:hover img{
+
+    scale: 1;
+} */
+
+#page4 h1{
+
+    font-size: 85px;
+    position: absolute;
+    top: -13%;
+    font-weight: 900;
+    color:#000;
+    -webkit-text-stroke: 1px #fff;
+}
+
+#footer{
+
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom,#119f3a,#ace022);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:150px;
+    padding: 0 100px;
+
+}
+
+#footer > img {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+  }
+  #f1 img {
+    height: 100px;
+  }
+  #f1,
+  #f2,
+  #f3,
+  #f4 {
+    width: fit-content;
+    position: relative;
+    z-index: 99;
+    /* background-color: red; */
+  }
+  #f2 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  
+  #f3 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  #f4 h4 {
+    font-size: 1vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 8px;
+  }
